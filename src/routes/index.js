@@ -1,15 +1,16 @@
 const { Router } = require('express');
 const router = Router();
+const fetch = require('node-fetch');
 
 router.get('/', (req,res) => {
     res.send("you are going for the good way");
-})
+});
 
 router.get('/users',(req,res) => {
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
+    fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
-    .then(json => console.log(json))
-})
+    .then(json => res.json(json));
+});
 
 module.exports = router;
 
