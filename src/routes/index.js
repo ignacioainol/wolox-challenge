@@ -12,6 +12,16 @@ router.get('/users',(req,res) => {
     .then(json => res.json(json));
 });
 
-module.exports = router;
+router.get('/photos', (req,res) => {
+    fetch('https://jsonplaceholder.typicode.com/photos')
+        .then(response => response.json())
+        .then(json => res.json(json));
+});
 
-//https://jsonplaceholder.typicode.com/users
+router.get('/albums', (req,res) => {
+    fetch('https://jsonplaceholder.typicode.com/albums')
+        .then(response => response.json())
+        .then(json => res.json(json))
+})
+
+module.exports = router;
